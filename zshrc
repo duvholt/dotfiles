@@ -79,10 +79,14 @@ source /usr/share/nvm/bash_completion
 source /usr/share/nvm/install-nvm-exec
 
 # Ruby env
-eval "$(rbenv init -)"
+if type "rbenv" &> /dev/null; then
+    eval "$(rbenv init -)"
+fi
 
 # Amedia tools (should be moved to machine specific config)
-source ~/amedia/tools/init.zsh
+if [[ -a ~/amedia/tools/init.sh ]]; then
+    source ~/amedia/tools/init.zsh
+fi
 
 # Allow installing npm binary packages without sudo
 export PATH=~/.npm-global/bin:$PATH
