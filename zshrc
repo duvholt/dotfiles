@@ -59,7 +59,9 @@ export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 
 # direnv - automatically load env variables
-eval "$(direnv hook zsh)"
+if type "direnv" &> /dev/null; then
+    eval "$(direnv hook zsh)"
+fi
 
 # Java
 export JAVA_OPTS="-Xmx512m"
@@ -73,11 +75,12 @@ export PATH=$PATH:~/.cargo/bin
 . ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 # Node version manager
-[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-source /usr/share/nvm/nvm.sh --no-use
-source /usr/share/nvm/bash_completion
-source /usr/share/nvm/install-nvm-exec
-
+if [[ -a /usr/share/nvm/nvm/sh ]]; then
+    [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
+    source /usr/share/nvm/nvm.sh --no-use
+    source /usr/share/nvm/bash_completion
+    source /usr/share/nvm/install-nvm-exec
+fi
 # Ruby env
 if type "rbenv" &> /dev/null; then
     eval "$(rbenv init -)"
