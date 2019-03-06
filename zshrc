@@ -75,7 +75,7 @@ export PATH=$PATH:~/.cargo/bin
 . ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 # Node version manager
-if [[ -a /usr/share/nvm/nvm/sh ]]; then
+if [[ -a /usr/share/nvm/nvm.sh ]]; then
     [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
     source /usr/share/nvm/nvm.sh --no-use
     source /usr/share/nvm/bash_completion
@@ -87,7 +87,7 @@ if type "rbenv" &> /dev/null; then
 fi
 
 # Amedia tools (should be moved to machine specific config)
-if [[ -a ~/amedia/tools/init.sh ]]; then
+if [[ -a ~/amedia/tools/init.zsh ]]; then
     source ~/amedia/tools/init.zsh
 fi
 
