@@ -46,6 +46,7 @@ fi
 export SPACESHIP_PACKAGE_SHOW=false
 # Disable docker version
 export SPACESHIP_DOCKER_SHOW=false
+export SPACESHIP_NODE_DEFAULT_VERSION="$(/usr/bin/node --version)"
 
 # virtualenvwrapper
 if [[ -a /usr/bin/virtualenvwrapper_lazy.sh ]]; then
