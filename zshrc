@@ -36,6 +36,7 @@ if ! zgen saved; then
     # sane history settings for zsh
     zgen load zimfw/zimfw modules/history/init.zsh
 
+    zgen load kiurchv/asdf.plugin.zsh
 
     # save all to init script
     zgen save
@@ -74,18 +75,6 @@ export PATH=$PATH:~/.cargo/bin
 
 # OCaml OPAM configuration
 . ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
-# Node version manager
-if [[ -a /usr/share/nvm/nvm.sh ]]; then
-    [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-    source /usr/share/nvm/nvm.sh --no-use
-    source /usr/share/nvm/bash_completion
-    source /usr/share/nvm/install-nvm-exec
-fi
-# Ruby env
-if type "rbenv" &> /dev/null; then
-    eval "$(rbenv init -)"
-fi
 
 # Amedia tools (should be moved to machine specific config)
 if [[ -a ~/amedia/tools/init.zsh ]]; then
