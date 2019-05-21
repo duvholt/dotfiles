@@ -1,0 +1,61 @@
+{
+    "workbench.colorTheme": "One Dark Pro",
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "ruby.intellisense": "rubyLocate",
+    "ruby.codeCompletion": "rcodetools",
+    "window.zoomLevel": 0,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "[typescriptreact]": {
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "editor.fontFamily": "'Fira Code', 'Hack', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontLigatures": true,
+    "breadcrumbs.enabled": true,
+    "files.exclude": {
+        "node_modules/": true
+    },
+    "editor.folding": false,
+    "jest.pathToJest": "",
+    "jest.pathToConfig": "config/jest.js",
+    "todohighlight.keywords": [
+        {
+            "text": "NOTE:",
+            "color": "#8951ba",
+            "backgroundColor": "rgba(0, 0, 0, 0.3)",
+            "isWholeLine": true
+        },
+        {
+            "text": "HACK:",
+            "color": "#bc382d",
+            "backgroundColor": "rgba(0, 0, 0, 0.3)",
+            "isWholeLine": true,
+        },
+        {
+            "text": "TODO:",
+            "color": "#bcb22d",
+            "backgroundColor": "rgba(0, 0, 0, 0.3)",
+            "isWholeLine": true
+        }
+    ],
+    "emmet.showAbbreviationSuggestions": false,
+    "emmet.showExpandedAbbreviation": "never",
+    "powermode.presets": "clippy",
+    "window.titleBarStyle": "native",
+    "python.formatting.provider": "yapf",
+    "search.usePCRE2": true,
+    "editor.minimap.maxColumn": 50,
+    "editor.minimap.renderCharacters": false,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.formatOnSave": true,
+    "gitlens.views.repositories.location": "scm",
+    "gitlens.views.fileHistory.location": "explorer",
+    "gitlens.views.lineHistory.location": "explorer",
+    "gitlens.views.compare.location": "gitlens",
+    "gitlens.views.search.location": "gitlens",
+    "typescript.surveys.enabled": false
+}
