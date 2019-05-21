@@ -42,6 +42,9 @@ if ! zgen saved; then
     zgen save
 fi
 
+# Enable comments
+setopt interactivecomments
+
 # Spaceship theme config
 # Disable npm package version
 export SPACESHIP_PACKAGE_SHOW=false
