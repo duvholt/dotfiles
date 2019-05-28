@@ -57,5 +57,8 @@
     "gitlens.views.lineHistory.location": "explorer",
     "gitlens.views.compare.location": "gitlens",
     "gitlens.views.search.location": "gitlens",
-    "typescript.surveys.enabled": false
+    "typescript.surveys.enabled": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
