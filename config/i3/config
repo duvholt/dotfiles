@@ -195,22 +195,23 @@ for_window [class="(?i)*nextcloud*"] floating disable
 for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px, no_focus
 
 # Ulauncher
-for_window [class="Ulauncher"] floating enable; border none
+bindsym Mod1+space exec ulauncher-toggle
+#for_window [class="Ulauncher"] floating enable; border none
 
 # Chromium
-for_window [class="chromium"] border 3pixel
+# for_window [class="chromium"] border 3pixel
 
 # Next/prev workspace
 bindsym Ctrl+Mod1+Right workspace next
 bindsym Ctrl+Mod1+Left workspace prev
 
 # Gaps
-#for_window [class=".*"] border pixel 0
-#smart_gaps on
-# smart_borders on
+for_window [class=".*"] border pixel 1
+smart_gaps on
+smart_borders on
 gaps outer 3
 gaps inner 10
-#new_window 1pixel
+
 client.focused #00C1FF #00C1FF #000088 #00C1FF
 client.focused_inactive #2C2C2C #2C2C2C #ffffff #2C2C2C
 client.unfocused #2C2C2C #2C2C2C #ffffff #2C2C2C
