@@ -188,8 +188,17 @@ bar {
 
     colors {
         background #252e38
+        background #252E38
+        statusline #D0E1F4
+        separator  #160E66
+
+        focused_workspace  #27313C #4D5F74 #FFFFFF
+        active_workspace   #333333 #222222 #FFFFFF
+        inactive_workspace #333333 #222222 #888888
+        urgent_workspace   #2F343A #900000 #FFFFFF
+        binding_mode       #2F343A #900000 #FFFFFF
     }
-    strip_workspace_numbers yes
+    # strip_workspace_numbers yes
 }
 
 # Gaps
@@ -200,10 +209,11 @@ gaps inner 10
 
 # Borders
 default_border pixel 2
-client.focused #00C1FF #00C1FF #000088 #00C1FF
-client.focused_inactive #2C2C2C #2C2C2C #ffffff #2C2C2C
-#client.unfocused #2C2C2C #2C2C2C #ffffff #2C2C2C
-client.urgent #00C1FF #00C1FF #000088 #00C1FF
+
+# class                 border  bground text    indicator child_border
+client.focused          #00C1FF #00C1FF #000088 #00C1FF   #285577
+client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
+client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
 
 # KDE config
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
