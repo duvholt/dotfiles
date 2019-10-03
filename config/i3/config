@@ -98,11 +98,11 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:gen"
-set $ws2 "2:slack"
-set $ws3 "3:code"
-set $ws4 "4:code2"
-set $ws5 "5:term"
+set $ws1 "1:General"
+set $ws2 "2:Chat"
+set $ws3 "3:Code 1"
+set $ws4 "4:Code 2"
+set $ws5 "5:Terminal"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -180,26 +180,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-    i3bar_command i3bar --transparency
-    status_command i3status 
-
-    colors {
-        background #252e38
-        background #252E38
-        statusline #D0E1F4
-        separator  #160E66
-
-        focused_workspace  #27313C #4D5F74 #FFFFFF
-        active_workspace   #333333 #222222 #FFFFFF
-        inactive_workspace #333333 #222222 #888888
-        urgent_workspace   #2F343A #900000 #FFFFFF
-        binding_mode       #2F343A #900000 #FFFFFF
-    }
-    # strip_workspace_numbers yes
-}
+# Bar
+exec_always --no-startup-id "~/./.local/bin/polybar_multi.sh"
 
 # Gaps
 smart_gaps on
