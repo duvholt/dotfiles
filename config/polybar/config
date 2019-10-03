@@ -72,7 +72,7 @@ module-margin-right = 2
 
 font-0 = Noto Sans:pixelsize=12;1
 font-1 = DejaVu Sans:size=10;0
-font-2 = siji:pixelsize=24;1
+font-2 = FontAwesome:pixelsize=12;1
 font-3 = Symbola:pixelsize=12;2
 
 modules-left = bspwm i3
@@ -105,7 +105,7 @@ label = %title:0:30:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-underline = ${colors.comment-grey}
 
@@ -119,11 +119,11 @@ label-indicator-underline = ${colors.secondary}
 
 [module/filesystem]
 type = internal/fs
-interval = 25
+interval = 250
 
 mount-0 = /
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-mounted =  %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -159,12 +159,12 @@ wrapping-scroll = false
 pin-workspaces = true
 
 # Icons
-ws-icon-0 = 1:General;♚
-ws-icon-1 = 2:Chat;♛
-ws-icon-2 = 3:Code 1;♜
-ws-icon-3 = 4:Code 2;♝
-ws-icon-4 = 5:Terminal;♞
-ws-icon-default = ♟
+ws-icon-0 = 1:General;
+ws-icon-1 = 2:Chat;
+ws-icon-2 = 3:Code 1;
+ws-icon-3 = 4:Code 2;
+ws-icon-4 = 5:Terminal;
+ws-icon-default = 
 
 # Remove number from name
 strip-wsnumbers = true
@@ -236,7 +236,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.dark-red}
 label = %percentage:2%%
@@ -244,7 +244,7 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.cyan}
 label = %percentage_used%%
@@ -264,11 +264,12 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+; TODO: Fix ramp
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
@@ -297,7 +298,7 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
+format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.blue}
 
@@ -370,7 +371,7 @@ format-charging-underline = ${colors.dark-yellow}
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
@@ -379,15 +380,17 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
 
