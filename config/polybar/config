@@ -72,7 +72,7 @@ module-margin-right = 2
 
 font-0 = Noto Sans:pixelsize=12;1
 font-1 = DejaVu Sans:size=10;0
-font-2 = FontAwesome:pixelsize=12;1
+font-2 = Font Awesome 5 Free Solid:pixelsize=12;1
 font-3 = Symbola:pixelsize=12;2
 
 modules-left = bspwm i3
@@ -236,7 +236,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.dark-red}
 label = %percentage:2%%
@@ -244,7 +244,7 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.cyan}
 label = %percentage_used%%
@@ -256,7 +256,7 @@ interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = ${colors.magenta}
-label-connected = %essid%
+label-connected = %essid% (%signal%%)
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
