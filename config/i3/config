@@ -9,6 +9,13 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# Compton
+exec --no-startup-id "compton -b"
+
+# Background
+exec --no-startup-id feh --bg-scale ~/.config/background
+
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -112,12 +119,15 @@ set $ws10 "10"
 # Monitors
 set $laptop "eDP-1"
 set $home "HDMI-2"
+set $work1 "DP-2-3-8"
+set $work2 "DP-2-2-8"
 
 # Assign workspaces to monitors
-workspace $ws1 output $home
-workspace $ws2 output $laptop
-workspace $ws3 output $home
-workspace $ws5 output $laptop
+workspace $ws1 output $home $work1
+workspace $ws2 output $laptop $work2
+workspace $ws3 output $home $work1
+workspace $ws4 output $work2 $home
+workspace $ws5 output $work1 $laptop
 
 
 # switch to workspace
@@ -224,8 +234,3 @@ bindsym Ctrl+Shift+Mod1+Left move container to workspace prev; workspace prev
 # Auto focus urgent
 focus_on_window_activation focus
 
-# Background
-exec --no-startup-id feh --bg-scale ~/Nedlastinger/wallhaven-q6omvd.jpg
-
-# Compton
-exec --no-startup-id "compton -b"
