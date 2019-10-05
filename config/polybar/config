@@ -81,10 +81,11 @@ modules-right = filesystem alsa pulseaudio xkeyboard memory cpu wlan1 wlan2 eth 
 
 tray-position = right
 tray-padding = 2
-tray-background = #0063ff
+tray-background = ${colors.background}
 
 ;wm-restack = bspwm
-;wm-restack = i3
+wm-restack = i3
+override-redirect = true
 
 ;override-redirect = true
 
