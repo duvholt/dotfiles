@@ -231,6 +231,9 @@ client.urgent           $dark_red       $dark_red       $foreground $dark_red   
 # Auto focus urgent
 focus_on_window_activation focus
 
+# Disable mouse warping
+mouse_warping none
+
 # KDE config
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 for_window [class="plasmashell"] floating enable;
@@ -259,3 +262,8 @@ bindsym Ctrl+Mod1+Left workspace prev
 bindsym Ctrl+Shift+Mod1+Right move container to workspace next; workspace next
 bindsym Ctrl+Shift+Mod1+Left move container to workspace prev; workspace prev
 
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
