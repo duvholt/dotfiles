@@ -52,6 +52,8 @@ height = 35
 radius = 0.0
 fixed-center = false
 
+bottom = false
+
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -79,7 +81,7 @@ modules-left = bspwm i3
 modules-center = xwindow mpd
 modules-right = filesystem alsa pulseaudio xkeyboard memory cpu wlan1 wlan2 eth battery date powermenu
 
-tray-position = right
+tray-position = none
 tray-padding = 2
 tray-background = ${colors.background}
 
