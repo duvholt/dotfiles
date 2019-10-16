@@ -253,6 +253,8 @@ for_window [class="Kmix"] floating enable; border none
 for_window [class="Klipper"] floating enable; border none
 for_window [class="Plasmoidviewer"] floating enable; border none
 
+bindsym $mod+Mod1+r exec "killall -q plasmashell && kstart5 plasmashell"
+
 #  Ulauncher
 bindsym $mod+d exec ulauncher-toggle
 bindsym Mod1+space exec ulauncher-toggle
