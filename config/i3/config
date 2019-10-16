@@ -236,9 +236,14 @@ focus_on_window_activation focus
 # Disable mouse warping
 mouse_warping none
 
-# KDE config
+### KDE config ###
+# Fix focus stealing
 exec --no-startup-id wmctrl -c Plasma
+assign [class="plasmashell" window_type="notification"] output primary
+no_focus [class="plasmashell"]
+# Kill desktop background
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
+# Float plasma windows
 for_window [class="plasmashell"] floating enable;
 for_window [class="Plasma"] floating enable; border none
 for_window [title="plasma-desktop"] floating enable; border none
@@ -247,12 +252,6 @@ for_window [class="krunner"] floating enable; border none
 for_window [class="Kmix"] floating enable; border none
 for_window [class="Klipper"] floating enable; border none
 for_window [class="Plasmoidviewer"] floating enable; border none
-for_window [class="(?i)*nextcloud*"] floating disable
-for_window [class="plasmashell" window_type="notification"] floating enable, border none, move position 4 40, no_focus
-
-# Plasma notifications from Chromium
-set $kde_notification "_KDE_NET_WM_WINDOW_TYPE_CRITICAL_NOTIFICATION"
-for_window [class="plasmashell" window_type=$kde_notification] floating enable, border none, move position 4 40, no_focus
 
 #  Ulauncher
 bindsym $mod+d exec ulauncher-toggle
