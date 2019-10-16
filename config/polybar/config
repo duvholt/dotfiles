@@ -19,7 +19,7 @@
 [colors]
 ;background = ${xrdb:color0:#222}
 background = #252e38
-background-alt = #444
+background-alt = #00000000
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #aaa
@@ -45,7 +45,7 @@ comment-grey = #5c6370
 
 [bar/example]
 monitor = ${env:MONITOR:}
-width = 100%
+width = 45%
 height = 35
 ;offset-x = 1%
 ;offset-y = 1%
@@ -54,7 +54,7 @@ fixed-center = false
 
 bottom = false
 
-background = ${colors.background}
+background = #00000000
 foreground = ${colors.foreground}
 
 line-size = 3
@@ -63,8 +63,8 @@ line-color = #f00
 border-size = 0
 border-color = #0000000
 
-border-bottom-size = 1
-border-bottom-color = #222222
+;border-bottom-size = 1
+;border-bottom-color = #222222
 
 padding-left = 0
 padding-right = 2
@@ -78,15 +78,15 @@ font-2 = Font Awesome 5 Free Solid:pixelsize=12;1
 font-3 = Symbola:pixelsize=12;2
 
 modules-left = bspwm i3
-modules-center = xwindow mpd
-modules-right = filesystem alsa pulseaudio xkeyboard memory cpu wlan1 wlan2 eth battery date powermenu
+;modules-center = xwindow mpd
+; modules-right = filesystem alsa pulseaudio xkeyboard memory cpu wlan1 wlan2 eth battery date powermenu
 
 tray-position = none
 tray-padding = 2
 tray-background = ${colors.background}
 
 ;wm-restack = bspwm
-wm-restack = i3
+; wm-restack = i3
 override-redirect = true
 
 ;override-redirect = true

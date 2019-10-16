@@ -201,7 +201,7 @@ smart_borders on
 gaps outer 3
 gaps inner 10
 # Reserve space for polybar
-gaps top 38
+# gaps top 38
 
 # Borders
 default_border pixel 3
@@ -252,8 +252,10 @@ for_window [class="krunner"] floating enable; border none
 for_window [class="Kmix"] floating enable; border none
 for_window [class="Klipper"] floating enable; border none
 for_window [class="Plasmoidviewer"] floating enable; border none
+for_window [class="lattedock"] floating enable;
 
 bindsym $mod+Mod1+r exec "killall -q plasmashell && kstart5 plasmashell"
+bindsym $mod+Mod1+l exec "killall -q latte-dock && kstart5 latte-dock"
 
 #  Ulauncher
 bindsym $mod+d exec ulauncher-toggle
