@@ -265,6 +265,9 @@ bindsym $mod+d exec ulauncher-toggle
 bindsym Mod1+space exec ulauncher-toggle
 for_window [class="ulauncher"] floating enable; border none
 
+# JetBrains toolbox
+for_window [class="jetbrains-toolbox"] floating enable, border none
+
 # Next/prev workspace
 bindsym Ctrl+Mod1+Right workspace next
 bindsym Ctrl+Mod1+Left workspace prev
