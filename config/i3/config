@@ -201,8 +201,8 @@ exec_always --no-startup-id "~/.local/bin/polybar_multi.sh"
 # Gaps
 smart_gaps on
 # smart_borders on
-gaps outer 3
-gaps inner 10
+gaps outer 0
+gaps inner 8
 # Reserve space for polybar
 # gaps top 38
 
