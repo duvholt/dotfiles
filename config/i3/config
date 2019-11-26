@@ -13,7 +13,7 @@
 exec --no-startup-id "compton -b"
 
 # Background
-exec --no-startup-id feh --bg-scale ~/.config/background
+exec_always --no-startup-id feh --bg-scale ~/.config/background
 
 # Dunst notification daemon
 # exec --no-startup-id dunst
