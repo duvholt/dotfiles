@@ -239,6 +239,8 @@ mouse_warping none
 exec --no-startup-id wmctrl -c Plasma
 assign [class="plasmashell" window_type="notification"] output primary
 no_focus [class="plasmashell"]
+assign [class="lattedock" window_type="notification"] output primary
+no_focus [class="lattedock"]
 # Kill desktop background
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 # Float plasma windows
