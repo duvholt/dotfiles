@@ -110,11 +110,11 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:General"
-set $ws2 "2:Chat"
-set $ws3 "3:Code 1"
-set $ws4 "4:Code 2"
-set $ws5 "5:Terminal"
+set $ws1 "1:General:"
+set $ws2 "2:Chat:"
+set $ws3 "3:Code 1:"
+set $ws4 "4:Code 2:"
+set $ws5 "5:Terminal:"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -239,6 +239,8 @@ mouse_warping none
 exec --no-startup-id wmctrl -c Plasma
 assign [class="plasmashell" window_type="notification"] output primary
 no_focus [class="plasmashell"]
+assign [class="lattedock" window_type="notification"] output primary
+no_focus [class="lattedock"]
 # Kill desktop background
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 # Float plasma windows
