@@ -265,6 +265,10 @@ for_window [class="ulauncher"] floating enable; border none
 # JetBrains toolbox
 for_window [class="jetbrains-toolbox"] floating enable, border none
 
+# move workspace between monitors
+bindsym Ctrl+$mod+Left move workspace to output left
+bindsym Ctrl+$mod+Right move workspace to output right
+
 # Next/prev workspace
 bindsym Ctrl+Mod1+Right workspace next
 bindsym Ctrl+Mod1+Left workspace prev
