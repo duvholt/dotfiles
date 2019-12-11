@@ -53,6 +53,9 @@ export SPACESHIP_DOCKER_SHOW=false
 export SPACESHIP_NODE_DEFAULT_VERSION="$(/usr/bin/node --version)"
 export SPACESHIP_PYTHON_DEFAULT_VERSION="system"
 
+# Colors
+alias ls='ls --color=auto'
+
 # virtualenvwrapper
 if [[ -a /usr/bin/virtualenvwrapper_lazy.sh ]]; then
     export WORKON_HOME=$HOME/.virtualenvs
