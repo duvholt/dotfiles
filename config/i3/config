@@ -129,7 +129,7 @@ set $work2 "DP-2-2-8"
 
 # Assign workspaces to monitors
 workspace $ws1 output $home $work1
-workspace $ws2 output $laptop $work2
+workspace $ws2 output $work2 $laptop
 workspace $ws3 output $home $work1
 workspace $ws4 output $work2 $home
 workspace $ws5 output $work1 $laptop
