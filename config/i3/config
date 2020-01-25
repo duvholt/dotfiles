@@ -220,8 +220,6 @@ set $cyan "#56b6c2"
 set $gutter_grey "#4b5263"
 set $comment_grey "#5c6370"
 
-for_window [class=".*"] title_format "<span size='smaller'>  %title  </span>"
-
 # class                 border          bground         text        indicator       child_border
 client.focused          $blue           $blue           $black      $light_yellow   $blue
 client.focused_inactive $comment_grey   $comment_grey   $foreground $dark_yellow    $background
