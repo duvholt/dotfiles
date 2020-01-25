@@ -13,7 +13,7 @@
 exec --no-startup-id "compton -b"
 
 # Background
-exec --no-startup-id feh --bg-scale ~/.config/background
+exec_always --no-startup-id feh --bg-scale ~/.config/background
 
 # Dunst notification daemon
 # exec --no-startup-id dunst
@@ -129,7 +129,7 @@ set $work2 "DP-2-2-8"
 
 # Assign workspaces to monitors
 workspace $ws1 output $home $work1
-workspace $ws2 output $laptop $work2
+workspace $ws2 output $work2 $laptop
 workspace $ws3 output $home $work1
 workspace $ws4 output $work2 $home
 workspace $ws5 output $work1 $laptop
@@ -255,6 +255,10 @@ for_window [class="ulauncher"] floating enable; border none
 
 # JetBrains toolbox
 for_window [class="jetbrains-toolbox"] floating enable, border none
+
+# move workspace between monitors
+bindsym Ctrl+$mod+Left move workspace to output left
+bindsym Ctrl+$mod+Right move workspace to output right
 
 # Next/prev workspace
 bindsym Ctrl+Mod1+Right workspace next
