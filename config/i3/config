@@ -235,24 +235,15 @@ focus_on_window_activation focus
 mouse_warping none
 
 ### KDE config ###
-# Fix focus stealing
-exec --no-startup-id wmctrl -c Plasma
-assign [class="plasmashell" window_type="notification"] output primary
-no_focus [class="plasmashell"]
-assign [class="lattedock" window_type="notification"] output primary
-no_focus [class="lattedock"]
-# Kill desktop background
-for_window [title="Desktop — Plasma"] kill; floating enable; border none
-# Float plasma windows
-for_window [class="plasmashell"] floating enable;
-for_window [class="Plasma"] floating enable; border none
-for_window [title="plasma-desktop"] floating enable; border none
-for_window [title="win7"] floating enable; border none
-for_window [class="krunner"] floating enable; border none
-for_window [class="Kmix"] floating enable; border none
-for_window [class="Klipper"] floating enable; border none
-for_window [class="Plasmoidviewer"] floating enable; border none
-for_window [class="lattedock"] floating enable;
+# Always display notifications on primary screen
+#assign [class="plasmashell" window_type="notification"] output primary
+#assign [class="lattedock" window_type="notification"] output primary
+# Kill Plasma desktop background
+for_window [title="Desktop — Plasma"] kill
+# Remove focus from Plasma and Latte
+no_focus [class="plasmashell|lattedock"]
+# Float and remove borders from plasma and latte windows
+for_window [class="plasmashell|lattedock"] floating enable, border none
 
 bindsym $mod+Mod1+r exec "killall -q plasmashell && kstart5 plasmashell"
 bindsym $mod+Mod1+l exec "killall -q latte-dock && kstart5 latte-dock"
