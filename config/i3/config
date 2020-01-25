@@ -247,9 +247,10 @@ bindsym $mod+Mod1+r exec "killall -q plasmashell && kstart5 plasmashell"
 bindsym $mod+Mod1+l exec "killall -q latte-dock && kstart5 latte-dock"
 
 #  Ulauncher
+exec --no-startup-id ulauncher --hide-window
 bindsym $mod+d exec ulauncher-toggle
 bindsym Mod1+space exec ulauncher-toggle
-for_window [class="ulauncher"] floating enable; border none
+for_window [class="ulauncher"] floating enable, border none
 
 # JetBrains toolbox
 for_window [class="jetbrains-toolbox"] floating enable, border none
