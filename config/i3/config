@@ -92,8 +92,10 @@ bindsym $mod+h split h
 # split in vertical orientation
 bindsym $mod+v split v
 
+# toggle maximized mode for the focused container
+bindsym $mod+f exec ~/.local/bin/i3_maximize.sh
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
