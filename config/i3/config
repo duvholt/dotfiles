@@ -46,6 +46,10 @@ font pango:Noto Sans 12
 # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 # bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+# Manually start Plasma dock from i3
+exec --no-startup-id "killall -q plasmashell || true && kstart5 plasmashell"
+# KDE session manager for lockscreen
+exec --no-startup-id "killall -q ksmserver || true && kstart5 ksmserver"
 # Dock
 exec --no-startup-id latte-dock
 
@@ -243,8 +247,8 @@ no_focus [class="plasmashell|lattedock"]
 # Float and remove borders from plasma and latte windows
 for_window [class="plasmashell|lattedock"] floating enable, border none
 
-bindsym $mod+Mod1+r exec "killall -q plasmashell && kstart5 plasmashell"
-bindsym $mod+Mod1+l exec "killall -q latte-dock && kstart5 latte-dock"
+bindsym $mod+Mod1+r exec "killall -q plasmashell || true && kstart5 plasmashell"
+bindsym $mod+Mod1+l exec "killall -q latte-dock || true && kstart5 latte-dock"
 
 #  Ulauncher
 exec --no-startup-id ulauncher --hide-window
