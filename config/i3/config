@@ -237,15 +237,17 @@ client.unfocused        $background     $background     $foreground $dark_yellow
 client.urgent           $dark_red       $dark_red       $foreground $dark_red       $dark_red
 
 # Auto focus urgent
-focus_on_window_activation focus
+focus_on_window_activation urgent
 
 # Disable mouse warping
 mouse_warping none
 
+# Disable autofocus on mouse move
+focus_follows_mouse no
+
 ### KDE config ###
 # Always display notifications on primary screen
-#assign [class="plasmashell" window_type="notification"] output primary
-#assign [class="lattedock" window_type="notification"] output primary
+assign [class="plasmashell|lattedock" window_type="notification"] output primary
 # Kill Plasma desktop background
 for_window [title="Desktop — Plasma"] kill
 # Remove focus from Plasma and Latte
