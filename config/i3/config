@@ -47,7 +47,7 @@ font pango:Noto Sans 12
 # bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Manually start Plasma dock from i3
-exec --no-startup-id "killall -q plasmashell || true && kstart5 plasmashell"
+exec --no-startup-id "killall plasmashell; kstart5 plasmashell"
 # KDE session manager for lockscreen
 exec --no-startup-id "killall -q ksmserver || true && kstart5 ksmserver"
 # KDE power management
@@ -247,7 +247,7 @@ focus_follows_mouse no
 
 ### KDE config ###
 # Always display notifications on primary screen
-assign [class="plasmashell|lattedock" window_type="notification"] output primary
+#assign [class="plasmashell|lattedock" window_type="notification"] output primary
 # Kill Plasma desktop background
 for_window [title="Desktop — Plasma"] kill
 # Remove focus from Plasma and Latte
@@ -255,8 +255,8 @@ no_focus [class="plasmashell|lattedock"]
 # Float and remove borders from plasma and latte windows
 for_window [class="plasmashell|lattedock"] floating enable, border none
 
-bindsym $mod+Mod1+r exec "killall -q plasmashell || true && kstart5 plasmashell"
-bindsym $mod+Mod1+l exec "killall -q latte-dock || true && kstart5 latte-dock"
+bindsym $mod+Mod1+r exec "killall plasmashell; kstart5 plasmashell"
+bindsym $mod+Mod1+l exec "killall latte-dock; kstart5 latte-dock"
 
 #  Ulauncher
 exec --no-startup-id ulauncher --hide-window
