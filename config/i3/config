@@ -55,7 +55,7 @@ exec --no-startup-id "killall -q ksmserver || true && kstart5 ksmserver"
 # KDE power management
 exec --no-startup-id "killall -q org_kde_powerdevil || true && kstart5 /usr/lib/org_kde_powerdevil"
 # Dock
-exec --no-startup-id latte-dock
+# exec --no-startup-id latte-dock
 # Enable KDE services
 exec --no-startup-id ~/.local/bin/i3_kde_services.sh
 
