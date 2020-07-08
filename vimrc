@@ -18,7 +18,11 @@ set shiftwidth=4	" Number of auto-indent spaces
 set smartindent	" Enable smart-indent
 set smarttab	" Enable smart-tabs
 set softtabstop=4	" Number of spaces per Tab
- 
+
+" 
+nnoremap d "_d
+vnoremap d "_d
+
 " Advanced
 set ruler	" Show row and column ruler information
  
