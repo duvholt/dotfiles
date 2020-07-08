@@ -43,7 +43,7 @@
     "emmet.showAbbreviationSuggestions": false,
     "emmet.showExpandedAbbreviation": "never",
     "window.titleBarStyle": "native",
-    "python.formatting.provider": "yapf",
+    "python.formatting.provider": "black",
     "search.usePCRE2": true,
     "editor.minimap.maxColumn": 50,
     "editor.minimap.renderCharacters": false,
@@ -74,5 +74,24 @@
         "javascriptreact",
         "typescript",
         "typescriptreact"
-    ]
+    ],
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "go.autocompleteUnimportedPackages": true,
+    "go.buildOnSave": "workspace",
+    "go.inferGopath": true,
+    "[ruby]": {
+        "editor.defaultFormatter": "misogi.ruby-rubocop"
+    },
+    "rust-client.channel": "nightly",
+    "workbench.editor.labelFormat": "short",
+    "ruby.rubocop.onSave": false,
+    "liveshare.presence": true,
+    "rust-client.disableRustup": true,
+    "rust-analyzer.checkOnSave.command": "clippy",
+    "rust-analyzer.updates.channel": "nightly",
+    "rust-analyzer.procMacro.enabled": true,
+    "rust-analyzer.cargo.loadOutDirsFromCheck": true,
+    "liveshare.allowGuestTaskControl": true
 }
