@@ -63,7 +63,7 @@ exec --no-startup-id ~/.local/bin/i3_kde_services.sh
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec konsole
+bindsym $mod+Return exec WINIT_X11_SCALE_FACTOR=1 alacritty --working-directory `xcwd`
 
 # kill focused window
 bindsym $mod+Shift+q kill
