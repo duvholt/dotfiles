@@ -249,15 +249,23 @@ focus_follows_mouse no
 
 ### KDE config ###
 # Always display notifications on primary screen
-#assign [class="plasmashell|lattedock" window_type="notification"] output primary
-# Kill Plasma desktop background
-for_window [title="Desktop — Plasma"] kill
+assign [class="plasmashell|lattedock" window_type="notification"] output primary
+
+# Send Plasma desktop background to scratchpad
+# Desktop window is used to position notifications, so killing it can sometimes cause notifications
+# to display offscreen or in other unintended places. 
+for_window [title="Desktop — Plasma"] floating enable, move scratchpad
+# Show Plasma desktop window
+bindsym $mod+Mod1+minus [title="Desktop — Plasma"] scratchpad show
+
 # Remove focus from Plasma and Latte
-no_focus [class="plasmashell|lattedock"]
+no_focus [class="plasmashell|lattedock" window_type="notification"]
 # Float and remove borders from plasma and latte windows
 for_window [class="plasmashell|lattedock"] floating enable, border none
 
+# Restart plasmashell
 bindsym $mod+Mod1+r exec "killall plasmashell; kstart5 plasmashell"
+# Restart latte-dock
 bindsym $mod+Mod1+l exec "killall latte-dock; kstart5 latte-dock"
 
 #  Ulauncher
@@ -282,5 +290,5 @@ bindsym Ctrl+Shift+Mod1+Left move container to workspace prev; workspace prev
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
-# Show the first scratchpad window
-bindsym $mod+minus scratchpad show
+# Show the first scratchpad window except for Plasma Desktop
+bindsym $mod+minus [title="^(?!Desktop — Plasma).*$"] scratchpad show
