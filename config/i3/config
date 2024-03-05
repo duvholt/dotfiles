@@ -8,14 +8,27 @@
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
+exec_always --no-startup-id "systemctl --user import-environment XDG_CURRENT_DESKTOP"
+exec_always --no-startup-id "systemctl --user import-environment XCURSOR_SIZE"
+exec_always --no-startup-id "systemctl --user import-environment XCURSOR_THEME"
 
-# Compton
-exec --no-startup-id "compton -b"
+# Picom
+exec_always --no-startup-id "systemd-run --user picom"
+# exp backends keeps crashing
 
 # Background
-exec_always --no-startup-id feh --bg-scale ~/.config/background
+exec_always --no-startup-id feh --bg-fill ~/.config/background
 
-exec --no-startup-id "xmousepasteblock"
+exec --no-startup-id xmousepasteblock
+
+exec --no-startup-id "systemd-run --user /usr/lib/polkit-kde-authentication-agent-1"
+
+exec --no-startup-id "systemctl --user restart ulauncher"
+
+# exec_always --no-startup-id flashfocus
+
+# geoclue for redshift
+exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 
 # Dunst notification daemon
 # exec --no-startup-id dunst
@@ -28,7 +41,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Noto Sans 12
+font pango:Noto Sans 10
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -49,7 +62,7 @@ font pango:Noto Sans 12
 # bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Manually start Plasma dock from i3
-exec --no-startup-id "killall plasmashell; kstart5 plasmashell"
+exec --no-startup-id "systemd-run --user plasmashell --replace"
 # KDE session manager for lockscreen
 exec --no-startup-id "killall -q ksmserver || true && kstart5 ksmserver"
 # KDE power management
@@ -63,7 +76,12 @@ exec --no-startup-id ~/.local/bin/i3_kde_services.sh
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec WINIT_X11_SCALE_FACTOR=1 alacritty --working-directory `xcwd`
+bindsym $mod+Return exec --no-startup-id systemd-run --user -E WINIT_X11_SCALE_FACTOR=1 alacritty --working-directory `xcwd`
+bindsym $mod+Shift+Return exec --no-startup-id WINIT_X11_SCALE_FACTOR=1 alacritty --working-directory `xcwd`
+
+# start i3 overview
+# exec --no-startup-id RUST_LOG=debug ~/Projects/personal/i3-overview/target/release/i3-overview
+bindsym $mod+m exec "systemctl --user kill -s SIGUSR1 i3-overview"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -111,8 +129,14 @@ bindsym $mod+e layout toggle split
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
+# toggle sticky floating window
+bindsym $mod+Mod1+space sticky toggle
+
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
+
+# toggle window title
+bindsym $mod+t border normal 3
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -128,7 +152,7 @@ set $ws3 "3:Code 1:"
 set $ws4 "4:Code 2:"
 set $ws5 "5:Terminal:"
 set $ws6 "6"
-set $ws7 "7"
+set $ws7 "7:Video:"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10:Music:"
@@ -159,7 +183,7 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-workspace_auto_back_and_forth yes
+# workspace_auto_back_and_forth yes
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1; workspace number $ws1
@@ -239,7 +263,8 @@ client.unfocused        $background     $background     $foreground $dark_yellow
 client.urgent           $dark_red       $dark_red       $foreground $dark_red       $dark_red
 
 # Auto focus urgent
-focus_on_window_activation urgent
+# focus_on_window_activation urgent
+focus_on_window_activation focus
 
 # Disable mouse warping
 mouse_warping none
@@ -249,37 +274,54 @@ focus_follows_mouse no
 
 ### KDE config ###
 # Always display notifications on primary screen
-assign [class="plasmashell|lattedock" window_type="notification"] output primary
+# assign [class="plasmashell|lattedock" window_type="notification"] output primary
 
 # Send Plasma desktop background to scratchpad
 # Desktop window is used to position notifications, so killing it can sometimes cause notifications
 # to display offscreen or in other unintended places. 
-for_window [title="Desktop — Plasma"] floating enable, move scratchpad
+for_window [title="Desktop .*— Plasma"] floating enable, move scratchpad
 # Show Plasma desktop window
 bindsym $mod+Mod1+minus [title="Desktop — Plasma"] scratchpad show
 
 # Remove focus from Plasma and Latte
 no_focus [class="plasmashell|lattedock" window_type="notification"]
 # Float and remove borders from plasma and latte windows
-for_window [class="plasmashell|lattedock"] floating enable, border none
+for_window [class="plasmashell|lattedock|kscreen_osd_service"] floating enable, border none
+# for_window [class="plasmashell|lattedock" window_type="notification"] exec --no-startup-id "sleep 3 && i3-msg -t get_tree | jq '.. | select(.window_type == \\"notification\\")? | .window' | xargs -i sh -c 'xdotool set_window --overrideredirect 1 {} && xdotool windowunmap {} && xdotool windowmap {} && xdotool set_window --overrideredirect 0 {}'"
 
 # Restart plasmashell
-bindsym $mod+Mod1+r exec "killall plasmashell; kstart5 plasmashell"
-# Restart latte-dock
-bindsym $mod+Mod1+l exec "killall latte-dock; kstart5 latte-dock"
+bindsym $mod+Mod1+r exec "systemd-run --user plasmashell --replace"
+# Run autorandr
+bindsym $mod+Mod1+a exec "autorandr -c"
+
+# Change inputs to laptop
+bindsym $mod+Mod1+l exec "ddcutil --sn=GH85D5AL0GXL setvcp 60 0x0f && ddcutil --display 1 setvcp 60 0x10"
+# Change inputs to stasjon
+bindsym $mod+Mod1+s exec "ddcutil --sn=GH85D5AL0GXL setvcp 60 0x10 && ddcutil --display 1 setvcp 60 0x11"
 
 #  Ulauncher
-exec --no-startup-id ulauncher --hide-window
+# exec --no-startup-id systemd-run --user ulauncher --hide-window
 bindsym $mod+d exec ulauncher-toggle
 bindsym Mod1+space exec ulauncher-toggle
-for_window [class="ulauncher"] floating enable, border none
+for_window [class="[uU]launcher"] floating enable, border none
 
 # JetBrains toolbox
 for_window [class="jetbrains-toolbox"] floating enable, border none
 
+# IntelliJ
+for_window [class="jetbrains-idea"] border pixel 3
+for_window [class="jetbrains-idea" title="win0"] floating enable
+for_window [class="^jetbrains-.+"][window_type=dialog] focus
+
+# Android Emulator
+for_window [title="^Android Emulator"] floating enable, border none
+
+
 # move workspace between monitors
-bindsym Ctrl+$mod+Left move workspace to output left
+bindsym Ctrl+$mod+Up move workspace to output up
 bindsym Ctrl+$mod+Right move workspace to output right
+bindsym Ctrl+$mod+Down move workspace to output down
+bindsym Ctrl+$mod+Left move workspace to output left
 
 # Next/prev workspace
 bindsym Ctrl+Mod1+Right workspace next
@@ -292,3 +334,6 @@ bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window except for Plasma Desktop
 bindsym $mod+minus [title="^(?!Desktop — Plasma).*$"] scratchpad show
+
+
+popup_during_fullscreen leave_fullscreen
