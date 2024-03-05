@@ -1,1 +1,5 @@
 .envrc
+.tool-versions
+**/.vscode/
+frpc.ini
+.duvholt
