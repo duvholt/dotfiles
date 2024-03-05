@@ -19,8 +19,8 @@ zmodule utility
 #
 # Exposes git repository status information to prompts.
 zmodule git-info
-# A customizable version of steeef's prompt theme.
-# zmodule steeef
+
+fpath=(/usr/share/zsh/site-functions $fpath)
 
 # Additional completion definitions for Zsh.
 zmodule zsh-users/zsh-completions
@@ -37,25 +37,12 @@ zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-history-substring-search
 # }}} End configuration added by Zim install
 
-# theme
-zmodule denysdovhan/spaceship-prompt -n spaceship
-
 # ssh agent
-# zmodule ssh
-
-# ssh agent
-zmodule twang817/zsh-ssh-agent -s ssh-agent.plugin.zsh
-zstyle :omz:plugins:ssh-agent identities id_ed25519
+zstyle ':zim:ssh' ids 'id_ed25519' 'id_lestrade' 'id_proxmox' 'id_kattehotell'
+zmodule ssh
 
 # fzf - fancy ctrl-r
 zmodule junegunn/fzf -s shell/completion.zsh
 zmodule junegunn/fzf -s shell/key-bindings.zsh
 
-# z - fuzzy jump to directory
-zmodule rupa/z
-zmodule changyuheng/fz
-
-# git dsf - fancy git diff
-zmodule zdharma/zsh-diff-so-fancy -s zsh-diff-so-fancy.plugin.zsh
-
-zmodule kiurchv/asdf.plugin.zsh -s asdf.plugin.zsh
+zmodule olets/zsh-abbr

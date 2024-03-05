@@ -147,11 +147,6 @@ if type "direnv" &> /dev/null; then
     eval "$(direnv hook zsh)"
 fi
 
-# Java
-export JAVA_OPTS="-Xmx512m"
-# not completely sure where this is taken from
-export MAVEN_OPTS="-Xms256m -Dfile.encoding=UTF-8 -Dcom.sun.management.jmxremote -noverify $JAVA_OPTS"
-
 # Rust
 export PATH=$PATH:~/.cargo/bin
 
@@ -168,5 +163,27 @@ export PATH=~/.npm-global/bin:$PATH
 # Add local bin folder
 export PATH=~/.local/bin:$PATH
 
-# Don't think this should be necessary
-spaceship_vi_mode_enable
+# spaceship_vi_mode_enable
+
+# Android SDK
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Go
+export PATH=$PATH:~/go/bin
+# Krew k8s
+export PATH="${PATH}:${HOME}/.krew/bin"
+
+# Test stuff down here
+alias ssh='TERM=xterm-256color ssh'
+
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+eval "$(mise activate zsh)"
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
+alias hx='helix'
+
