@@ -1,0 +1,6 @@
+[Unit]
+Description=KDE Plasma Workspace Custom
+Requires=plasma-core.target graphical-session.target
+Wants=plasma-xembedsniproxy.service plasma-gmenudbusmenuproxy.service plasma-powerdevil.service plasma-polkit-agent.service kde-baloo.service plasma-foreground-booster.service plasma-kwallet-pam.service plasma-kglobalaccel.service
+BindsTo=graphical-session.target
+Before=graphical-session.target
