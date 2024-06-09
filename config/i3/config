@@ -8,8 +8,8 @@
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
-exec_always --no-startup-id "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP KDE_SESSION_VERSION XDG_MENU_PREFIX KDE_APPLICATIONS_AS_SCOPE"
-#exec_always --no-startup-id "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+exec_always --no-startup-id "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP KDE_SESSION_VERSION XDG_MENU_PREFIX KDE_APPLICATIONS_AS_SCOPE KDE_FULL_SESSION"
+# exec_always --no-startup-id "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 exec_always --no-startup-id "systemctl --user import-environment XCURSOR_SIZE XCURSOR_THEME"
 
 # Picom
@@ -17,6 +17,9 @@ exec_always --no-startup-id "systemd-run --user picom"
 
 # Background
 exec_always --no-startup-id feh --bg-fill ~/.config/background
+
+# Solaar -  logitech devices
+exec --no-startup-id "solaar --window=hide"
 
 exec --no-startup-id xmousepasteblock
 
@@ -66,7 +69,7 @@ bindsym $mod+Shift+q kill
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
-bindsym $mod+l focus up
+# bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
@@ -263,7 +266,7 @@ no_focus [class="plasmashell|lattedock" window_type="notification"]
 for_window [class="plasmashell|lattedock|kscreen_osd_service"] floating enable, border none
 
 # Restart plasmashell
-bindsym $mod+Mod1+r exec "systemd-run --user plasmashell --replace"
+bindsym $mod+Mod1+r exec "systemctl --user restart plasma-plasmashell.service"
 # Run autorandr
 bindsym $mod+Mod1+a exec "autorandr -c"
 
