@@ -219,6 +219,8 @@ gaps inner 8
 
 # Borders
 default_border pixel 3
+# Try to fix csd apps
+for_window [tiling] border pixel 3
 
 # Colors
 set $background "#252e38"
@@ -264,6 +266,8 @@ bindsym $mod+Mod1+minus [title="Desktop @ QRect"] scratchpad show
 no_focus [class="plasmashell|lattedock" window_type="notification"]
 # Float and remove borders from plasma and latte windows
 for_window [class="plasmashell|lattedock|kscreen_osd_service"] floating enable, border none
+
+for_window [class="plasma-welcome"] floating enable
 
 # Restart plasmashell
 bindsym $mod+Mod1+r exec "systemctl --user restart plasma-plasmashell.service"
