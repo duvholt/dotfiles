@@ -176,6 +176,13 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:~/go/bin
 # Krew k8s
 export PATH="${PATH}:${HOME}/.krew/bin"
+# .NET
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export PATH="${PATH}:${HOME}/.dotnet"
+export PATH="${PATH}:${HOME}/.dotnet/tools"
+
+# Jetbrains
+export PATH="${PATH}:${HOME}/.local/share/JetBrains/Toolbox/scripts"
 
 # Test stuff down here
 alias ssh='TERM=xterm-256color ssh'
