@@ -32,5 +32,9 @@
     "key": "ctrl+enter",
     "command": "extension.pgsql.runCurrentStatement",
     "when": "editorTextFocus && editorLangId == 'sql'"
+  },
+  {
+    "key": "ctrl+shift+d",
+    "command": "editor.action.duplicateSelection"
   }
 ]

@@ -41,7 +41,7 @@
   ],
   "emmet.showAbbreviationSuggestions": false,
   "emmet.showExpandedAbbreviation": "never",
-  "window.titleBarStyle": "native",
+  "window.titleBarStyle": "custom",
   "python.formatting.provider": "black",
   "editor.minimap.maxColumn": 50,
   "editor.minimap.renderCharacters": false,
@@ -195,7 +195,6 @@
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
-  "editor.formatOnSave": true,
   "telemetry.telemetryLevel": "off",
   "go.formatTool": "goimports",
   "reactSnippets.settings.languageScopes": "typescript,typescriptreact",
@@ -218,5 +217,20 @@
   "vs-kubernetes": {
     "vs-kubernetes.crd-code-completion": "enabled"
   },
-  "editor.stickyScroll.enabled": true
+  "editor.stickyScroll.enabled": true,
+  "FSharp.externalAutocomplete": true,
+  "FSharp.codeLenses.references.enabled": false,
+  "xml.format.spaceBeforeEmptyCloseTag": false,
+  "[xml]": {
+    "editor.autoClosingBrackets": "never",
+    "files.trimFinalNewlines": false,
+    "files.insertFinalNewline": true
+  },
+  "files.associations": {
+    "*.fsproj": "xml"
+  },
+  "FSharp.addPrivateAccessModifier": true,
+  "FSharp.inlineValues.enabled": true,
+  "FSharp.verboseLogging": true,
+  "todo-tree.regex.regexCaseSensitive": false
 }
