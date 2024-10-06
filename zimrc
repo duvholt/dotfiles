@@ -46,3 +46,5 @@ zmodule junegunn/fzf -s shell/completion.zsh
 zmodule junegunn/fzf -s shell/key-bindings.zsh
 
 zmodule olets/zsh-abbr
+
+zmodule wfxr/forgit
