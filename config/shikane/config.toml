@@ -1,0 +1,37 @@
+[[profile]]
+name = "home"
+
+[[profile.output]]
+enable = false
+search = ["m=0x0AE0", "s=", "v=BOE"]
+
+
+[[profile.output]]
+enable = true
+search = ["m=DELL U2715H", "s=GH85D5AL0GXL", "v=Dell Inc."]
+mode = "2560x1440@59.951Hz"
+position = "0,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+[[profile.output]]
+enable = true
+search = ["m=DELL U2715H", "s=GH85D5AL0DWL", "v=Dell Inc."]
+mode = "2560x1440@59.951Hz"
+position = "2560,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+
+# [[profile]]
+#     name = "laptop"
+#     [[profile.output]]
+#     enable = true
+#     search = ["m=0x0AE0", "s=", "v=BOE"]
+#     mode = "2560x1600@60.002Hz"
+#     position = "0,0"
+#     scale = 1.59765625
+#     transform = "normal"
+#     adaptive_sync = false
