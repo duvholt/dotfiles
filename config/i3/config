@@ -311,4 +311,4 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus [title="^(?!Desktop — Plasma).*$"] scratchpad show
 
 
-popup_during_fullscreen leave_fullscreen
+popup_during_fullscreen all
