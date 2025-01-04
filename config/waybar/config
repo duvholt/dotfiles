@@ -26,7 +26,7 @@
         "hyprland/window"
     ],
     "modules-right": [
-        // "network",
+        "network",
         // "memory",
         // "cpu",
         // "temperature",
@@ -97,12 +97,24 @@
         }
     },
 
+    // "network": {
+    //     "interval": 5,
+    //     "format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
+    //     "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
+    //     "format-disconnected": "⚠  Disconnected",
+    //     "tooltip-format": "{ifname}: {ipaddr}"
+    // },
+
     "network": {
-        "interval": 5,
-        "format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
-        "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
-        "format-disconnected": "⚠  Disconnected",
-        "tooltip-format": "{ifname}: {ipaddr}"
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        //"format-wifi": "{essid} ({signalStrength}%) ",
+        "format-wifi": "{signalStrength}% ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        //"format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "plasmawindowed org.kde.plasma.networkmanagement"
     },
 
     "hyprland/submap": {
