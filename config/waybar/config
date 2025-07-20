@@ -16,24 +16,32 @@
     "position": "bottom",
 
     // If height property would be not present, it'd be calculated dynamically
-    "height": 30,
+    // "height": 30,
 
     "modules-left": [
         "hyprland/workspaces",
+        "sway/workspaces",
+        "sway/mode",
         "hyprland/submap"
     ],
     "modules-center": [
-        "hyprland/window"
+        "hyprland/window",
+        "sway/window"
     ],
     "modules-right": [
-        "network",
         // "memory",
         // "cpu",
         // "temperature",
+        "tray",
+        "mpris",
+        "wireplumber",
+        "bluetooth",
+        "backlight",
+        "network",
+        "battery",
         "power-profiles-daemon",
         "hyprland/language",
-        "battery",
-        "tray",
+        "sway/language",
         "clock#date",
         "clock#time"
     ],
@@ -43,14 +51,73 @@
     // Modules
     // -------------------------------------------------------------------------
 
+    "tray": {
+        "icon-size": 24,
+        "spacing": 5
+    },
+
+
+    "mpris": {
+        "format": "{player_icon}",
+        "format-paused": "{status_icon}",
+        "tooltip-format": "{dynamic} ({player})",
+        "player-icons": {
+            "default": ""
+        },
+        "status-icons": {
+            "paused": ""
+        },
+        "on-click": "plasmawindowed org.kde.plasma.mediacontroller",
+        "on-click-middle": "playerctl play-pause"
+        
+        // "ignored-players": ["firefox"]
+    },
+
+    "wireplumber": {
+        "format": "{icon}",
+        "format-muted": "",
+        "on-click": "plasmawindowed org.kde.plasma.volume",
+        "format-icons": ["", "", ""]
+    },
+
+    "bluetooth": {
+        // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+        "format": "",
+        "tooltip-format": "",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias} connected. {device_battery_percentage}% battery",
+        "on-click": "plasmawindowed org.kde.plasma.bluetooth"
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "format-icons": [""],
+        "on-click": "plasmawindowed org.kde.plasma.brightness"
+    },
+
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-disconnected": "Disconnected ⚠",
+        "tooltip-format-wifi": "Connected to {essid}",
+        //"format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "plasmawindowed org.kde.plasma.networkmanagement"
+    },
+
     "battery": {
         "interval": 10,
         "states": {
+            "full": 100,
+            "normal": 80,
             "warning": 30,
             "critical": 15
         },
         // Connected to AC
-        "format": "  {icon}  {capacity}%", // Icon: bolt
+        "format": "{icon}   {capacity}%",
+        "format-full": "{icon} ",
         // Not connected to AC
         "format-discharging": "{icon}  {capacity}%",
         "format-icons": [
@@ -60,7 +127,21 @@
             "", // Icon: battery-quarter
             ""  // Icon: battery-empty
         ],
-        "tooltip": true
+        "tooltip": true,
+        "tooltip-format": "{timeTo}",
+        "on-click": "plasmawindowed org.kde.plasma.battery"
+    },
+
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
     },
 
     "clock#time": {
@@ -72,50 +153,14 @@
     "clock#date": {
       "interval": 10,
       "format": "  {:%e %b %Y}", // Icon: calendar-alt
-      "tooltip-format": "{:%e %B %Y}"
-    },
-
-    "cpu": {
-        "interval": 5,
-        "format": "  {usage}% ({load})", // Icon: microchip
-        "states": {
-          "warning": 70,
-          "critical": 90
-        }
+      "tooltip-format": "{:%e %B %Y}",
+      "on-click": "plasmawindowed org.kde.plasma.calendar"
     },
 
     "hyprland/language": {
 
     },
 
-    "memory": {
-        "interval": 5,
-        "format": "  {}%", // Icon: memory
-        "states": {
-            "warning": 70,
-            "critical": 90
-        }
-    },
-
-    // "network": {
-    //     "interval": 5,
-    //     "format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
-    //     "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
-    //     "format-disconnected": "⚠  Disconnected",
-    //     "tooltip-format": "{ifname}: {ipaddr}"
-    // },
-
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        //"format-wifi": "{essid} ({signalStrength}%) ",
-        "format-wifi": "{signalStrength}% ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        //"format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "on-click": "plasmawindowed org.kde.plasma.networkmanagement"
-    },
 
     "hyprland/submap": {
         "format": "<span style=\"italic\">  {}</span>", // Icon: expand-arrows-alt
@@ -143,22 +188,29 @@
         }
     },
 
-    "power-profiles-daemon": {
-        "format": "{icon}",
-        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-        "tooltip": true,
-        "format-icons": {
-            "default": "",
-            "performance": "",
-            "balanced": "",
-            "power-saver": ""
-        }
+    "sway/mode": {
+        "format": "{}",
+        "max-length": 50
     },
 
+    "sway/window": {
+        "format": "{title}",
+        "max-length": 50,
+        "icon": true,
+        "icon-size": 22
+    },
 
-    "tray": {
-        "icon-size": 22,
-        "spacing": 10
+    "sway/workspaces": {
+        "format": "{icon} {name}",
+        "disable-scroll": true,
+        "format-icons": {
+            "General": "",
+            "Chat": " ",
+            "Code 1": "  ",
+            "Code 2": "  ",
+            "Music": "",
+            "default": "",
+            "urgent": ""
+        }
     }
-
 }

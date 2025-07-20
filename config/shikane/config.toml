@@ -6,6 +6,10 @@ enable = false
 search = ["m=0x0AE0", "s=", "v=BOE"]
 
 [[profile.output]]
+enable = false
+search = ["m=0x058B", "s=", "v=LG Display"]
+
+[[profile.output]]
 enable = true
 search = ["m=DELL U2715H", "s=GH85D5AL0GXL", "v=Dell Inc."]
 mode = "2560x1440@59.951Hz"
@@ -63,6 +67,43 @@ position = "0,0"
 scale = 1
 transform = "normal"
 
+
+[[profile]]
+name = "home2"
+
+[[profile.output]]
+enable = true
+search = ["m=DELL U2715H", "s=GH85D5AL0GXL", "v=Dell Inc."]
+mode = "2560x1440@59.951Hz"
+position = "1706,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+[[profile.output]]
+enable = true
+search = ["m=DELL U2715H", "s=GH85D5AL0DWL", "v=Dell Inc."]
+mode = "2560x1440@59.951Hz"
+position = "4266,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+[[profile.output]]
+enable = false
+search = ["m=0x058B", "s=", "v=LG Display"]
+
+[[profile]]
+name = "builtin2"
+
+[[profile.output]]
+enable = true
+search = ["m=0x058B", "s=", "v=LG Display"]
+mode = "2560x1440@59.998Hz"
+position = "0,0"
+scale = 1.5
+transform = "normal"
+adaptive_sync = false
 
 # [[profile]]
 #     name = "laptop"
