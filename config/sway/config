@@ -41,6 +41,8 @@ exec systemctl --user set-environment KDE_APPLICATIONS_AS_SCOPE=1
 exec systemctl --user set-environment KDE_FULL_SESSION=true
 exec systemctl --user set-environment GTK_MODULES=canberra-gtk-module
 
+exec systemctl --user set-environment ELECTRON_OZONE_PLATFORM_HINT=wayland
+
 # GTK???
 exec systemctl --user set-environment GDK_BACKEND=wayland
 
