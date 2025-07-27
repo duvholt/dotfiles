@@ -437,6 +437,7 @@ for_window [window_role="task_dialog"] floating enable
 for_window [app_id="kdesystemsettings"] floating enable
 no_focus [app_id="org.kde.plasmashell"]
 for_window [app_id="org.kde.plasmashell"] floating enable, border none, move position 80 ppt 2 ppt
+for_window [app_id="org.kde.plasmashell"] blur disable, shadows disable
 # for_window [app_id="org.kde.plasmashell"] move 10% 10%;
 for_window [class="Plasmoidviewer"] floating enable, border none
 # for_window [app_id="org.kde.plasmashell" title="Plasma"] border none, move right 40ppt, move down 40ppt
