@@ -104,9 +104,11 @@ bindsym Mod1+space exec walker
 # for_window [app_id="dev.benz.walker"] border none
 
 # Lock on idle
-set $lock "qdbus org.kde.ksmserver /ScreenSaver org.freedesktop.ScreenSaver.Lock"
+# set $lock "qdbus6 org.kde.ksmserver /ScreenSaver org.freedesktop.ScreenSaver.Lock"
+# dbus screensaver is broken :(
+set $lock "/usr/lib/kscreenlocker_greet"
 exec swayidle -w \
-	timeout 60 '$lock' \
+	timeout 180 '$lock' \
 	timeout 300 'swaymsg "output * power off"' \
 		resume 'swaymsg "output * power on"'
 
