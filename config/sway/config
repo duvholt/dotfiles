@@ -11,6 +11,8 @@
 
 include /etc/sway/config.d/*
 
+# Fix for i3-pager (i3ipcpp uses I3SOCK)
+exec systemctl --user import-environment I3SOCK
 
 exec systemctl --user set-environment XDG_SESSION_TYPE=wayland
 exec systemctl --user set-environment XDG_CURRENT_DESKTOP=KDE
